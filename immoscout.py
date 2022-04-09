@@ -22,13 +22,14 @@ def calculateSum(arr):
     return result
 
 # Fragt die Query ab die Später in den URL gegeben werden soll (der Suchbegriff)
-query = input(prefix + "Bitte gebe deine Query an << ")
+# query = input(prefix + "Bitte gebe deine Query an << ")
 
 # Fügt die Query in den Ebay-Kleinanzeigen URL ein.
-URL = "https://www.ebay-kleinanzeigen.de/s-" + query + "/k0"
+# URL = "https://www.ebay-kleinanzeigen.de/s-" + query + "/k0"
+URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/seite:1/1-zimmer-wohnung/k0l1056"
 
 # Gibt aus welche Query gewählt wurde.
-print(prefix + "Es wird nach gesucht nach >> " + query)
+print(prefix + "Es wird nach gesucht nach >> " + URL)
 
 # Setzt die Headers der Anfrage (Den User-Agent), damit Ebay-Kleinanzeigen die Anfrage nicht blockt.
 headers = {
