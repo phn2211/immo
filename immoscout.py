@@ -31,7 +31,7 @@ for seite in range(1,2):
                 l = list(filter(lambda x: x != item, l))
                 print("ID " + str(item) + " entfernt.")
         print("Exportiert CSV")
-        df.to_csv("/export/"+str(datetime.now())[:19].replace(":","").replace(".","")+".csv",sep=";",decimal=",",encoding = "utf-8",index_label="timestamp")     
+        df.to_csv("export/"+str(datetime.now())[:19].replace(":","").replace(".","")+".csv",sep=";",decimal=",",encoding = "utf-8",index_label="timestamp")     
         print("Loop " + str(seite) + " endet.\n")     
     except Exception as e: 
         print(str(datetime.now())+": " + str(e))
