@@ -52,7 +52,7 @@ soup = BeautifulSoup(page, "html.parser")
 srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
-srchRslts = soup.find_all(class_="aditem-main")
+srchRslts = soup.find_all(class_="article")
 
 # Setzt einen Counter.
 counter = 0
@@ -71,7 +71,7 @@ for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem der class "--price".
-    entries = srchRslt.find_all("article")
+    entries = srchRslt.find_all("aditem-main")
     # Geht durch jedes Element mit dem <strong> tag durch.
     for entry in entries:
         entry_date = entries.find_all(class_="icon icon-smal icon-alendar-open")
