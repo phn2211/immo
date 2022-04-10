@@ -49,7 +49,7 @@ soup = BeautifulSoup(page, "html.parser")
 srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
-srchRslts = soup.find_all("li")
+srchRslts = soup.find_all(".aditem-main--middle")
 
 # Setzt einen Counter.
 counter = 0
@@ -61,7 +61,7 @@ ePreise = []
 
 # Looped durch alle Search-Results durch.
 for srchRslt in srchRslts:
-    #print(srchRslt.get_text())
+    print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem <strong> tag.
     preise = srchRslt.find_all("strong")
