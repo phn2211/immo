@@ -71,8 +71,7 @@ for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem der class "--price".
-    # entries = srchRslt.find_all(class_="aditem-main--middle--price")
-    entries = srchRslt.find_all(class_="aditem-main--middle--price")
+    entries = srchRslt.find_all(class_="aditem-main")
     # Geht durch jedes Element mit dem <strong> tag durch.
     for entry in entries:
 
@@ -80,8 +79,9 @@ for srchRslt in srchRslts:
         counter = counter + 1
 
         # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        print("#" + str(counter) + " | " +  entry.text)
-
+        entry_date = entry.find_all(class_="icon icon-small icon-calendar-open")
+        #print("#" + str(counter) + " | " +  entry.text)
+        print("#" + str(counter) + " | " +  entry_date.text)
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
         if("VB" in entry.text):
             vbCounter = vbCounter + 1
