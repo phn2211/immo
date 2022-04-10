@@ -71,7 +71,7 @@ for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem der class "--price".
-    entries = srchRslt.find_all(class_="aditem-main")
+    entries = srchRslt.find_all("article")
     # Geht durch jedes Element mit dem <strong> tag durch.
     for entry in entries:
         entry_date = entries.find_all(class_="icon icon-smal icon-alendar-open")
