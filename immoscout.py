@@ -62,43 +62,49 @@ vbCounter =  0
 
 eEntries = []
 
-# Looped durch alle Search-Results durch.
-for srchRslt in srchRslts:
-    print(srchRslt.get_text())
+# CSV Parameter
+df = pd.DataFrame()
+list = []
 
-    # Nimmt sich alles mit dem der class "--price".
-    entries = srchRslt.find_all(class_="aditem-main--middle--price")
+for page in range(1,3):
+    URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/seite:"+str(page)+"/1-zimmer-wohnung/k0l1056"
+    # Looped durch alle Search-Results durch.
+    for srchRslt in srchRslts:
+        print(srchRslt.get_text())
 
-    # Geht durch jedes Element mit dem <strong> tag durch.
-    for entry in entries:
+        # Nimmt sich alles mit dem der class "--price".
+        entries = srchRslt.find_all(class_="aditem-main--middle--price")
 
-        # Incrementiert einen Counter.
-        counter = counter + 1
+        # Geht durch jedes Element mit dem <strong> tag durch.
+        for entry in entries:
 
-        # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        print("#" + str(counter) + " | " +  entry.text)
+            # Incrementiert einen Counter.
+            counter = counter + 1
 
-        # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
-        if("VB" in entry.text):
-            vbCounter = vbCounter + 1
-            
-            # Entfernt Chars, wenn das Euro-Zeichen vorhande ist.
-            # Konvertiert außerdem den Preis in eine Int und speichert ihn in den Array 'ePreise'.
-            if("€" in entry.text):
-                if("." in entry.text):
-                    if("VB" in entry.text):
+            # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
+            print("#" + str(counter) + " | " +  entry.text)
+
+            # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
+            if("VB" in entry.text):
+                vbCounter = vbCounter + 1
+                
+                # Entfernt Chars, wenn das Euro-Zeichen vorhande ist.
+                # Konvertiert außerdem den Preis in eine Int und speichert ihn in den Array 'eEntries'.
+                if("€" in entry.text):
+                    if("." in entry.text):
+                        if("VB" in entry.text):
+                            eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
+                        else:
+                            eEntries.append(int(entry.text.replace(" ", "").replace("€", "").replace(".", "")))
                         eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
                     else:
+                        eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "")))
+            else:
+                if("€" in entry.text):
+                    if("." in entry.text):
                         eEntries.append(int(entry.text.replace(" ", "").replace("€", "").replace(".", "")))
-                    eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
-                else:
-                    eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "")))
-        else:
-            if("€" in entry.text):
-                if("." in entry.text):
-                    eEntries.append(int(entry.text.replace(" ", "").replace("€", "").replace(".", "")))
-                else:
-                    eEntries.append(int(entry.text.replace(" ", "").replace("€", "")))        
+                    else:
+                        eEntries.append(int(entry.text.replace(" ", "").replace("€", "")))        
 
 # Gibt verhandelbare Listings aus.
 print(prefix + "Verhandelbare Listings >> " + str(vbCounter))
