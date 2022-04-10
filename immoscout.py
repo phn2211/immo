@@ -82,7 +82,7 @@ for srchRslt in srchRslts:
     # Nimmt sich das Element mit dem data-href als Link.
     entry_link = srchRslt.find(class_="aditem")
     entry_link = entry_link['data-href']
-    print entry_link
+    print(entry_link)
     # Counter initialisieren auf 1
     counter = counter + 1
 
