@@ -87,8 +87,8 @@ while(!feof($myfile)) {
   $time_of_creation = $line[1];	
   $place = $line[2];
   $price = $line[3];
-  $title = $line[4];
-  $desc = $line[5];
+  $title = str_replace("\r\n","",$line[4]);
+  $desc = str_replace("\r\n","",$line[5]);
   $link = $line[6];
   echo '<tr>';
   echo '<td>'.$id.'</td>';
