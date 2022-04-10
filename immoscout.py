@@ -91,10 +91,10 @@ for srchRslt in srchRslts:
         counter = counter + 1
 
         # Ausgabe der Details
-        # print("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip() + ";https://www.ebay-kleinanzeigen.de/" + entry_link['href'])
+        # print("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip() + ";https://www.ebay-kleinanzeigen.de" + entry_link['href']+ ';\n')
         # Save in file
         with open('flats.txt', 'a') as f:
-            f.write("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip() + ";https://www.ebay-kleinanzeigen.de/" + entry_link['href'])
+            f.write("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip() + ";https://www.ebay-kleinanzeigen.de" + entry_link['href']+ ';\n')
 
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
         if("VB" in entry_price.text):
