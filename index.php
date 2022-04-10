@@ -76,7 +76,7 @@ $mtime = filemtime('flats.txt');
 
 <div class="container" style="margin-top:30px">
   <div class="row">
-	 <div class="col-md-9 col-xs-12">
+	 <div class="col-md-12 col-xs-12">
 <?php
 $myfile = fopen("flats.txt", "r") or die("Unable to open file!");
 echo '<table class="table table-responsive">';
@@ -105,13 +105,7 @@ while(!feof($myfile)) {
 echo "</table>";
 fclose($myfile);	  
 ?>
-	</div> 
-	<div class="col-md-3 col-xs-12">
-	<table class="table table-responsive">
-	<tbody>	
-	</tbody>
-	</table>			  
-	</div>	
+	</div>
   </div>
 </div>
 <!--
