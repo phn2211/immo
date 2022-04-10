@@ -64,7 +64,7 @@ for srchRslt in srchRslts:
     print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem <strong> tag.
-    preise = srchRslt.find_all("strong")
+    preise = srchRslt.find_all(class_="aditem-main--middle--price")
 
     # Geht durch jedes Element mit dem <strong> tag durch.
     for preis in preise:
