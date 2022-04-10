@@ -85,8 +85,8 @@ for srchRslt in srchRslts:
     
     # Suche Anzeigen extrahieren
     if not ("suche" in entry_link['href']):
-        print(entry_link['href'])
-        """
+        #print(entry_link['href'])
+        
         # Counter initialisieren auf 1
         counter = counter + 1
 
@@ -123,4 +123,3 @@ print(prefix + "Anzahl der Listings >> " + str(counter))
 
 # Gibt den Durschnitspreis der Listings aus.
 print(prefix + "Durschnitts-Preis der Listings >> " + str(calculateAverage(calculateSum(ePrices), counter)))
-"""
