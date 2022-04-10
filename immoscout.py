@@ -73,8 +73,8 @@ for page in range(1,3):
         #print(srchRslt.get_text())
 
         # Nimmt sich alles mit dem der class "--price".
-        entries = srchRslt.find_all(class_="aditem-main--middle--price")
-
+        # entries = srchRslt.find_all(class_="aditem-main--middle--price")
+        entries = srchRslt.find_all(class_="aditem-main")
         # Geht durch jedes Element mit dem <strong> tag durch.
         for entry in entries:
 
