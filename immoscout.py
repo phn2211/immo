@@ -49,7 +49,7 @@ soup = BeautifulSoup(page, "html.parser")
 srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
-srchRslts = soup.find_all(class_="aditem-main")
+srchRslts = soup.find_all(class_="aditem")
 
 # Setzt einen Counter.
 counter = 0
@@ -80,7 +80,8 @@ for srchRslt in srchRslts:
     entry_desc = srchRslt.find(class_="aditem-main--middle--description")
    
     # Nimmt sich das Element mit dem data-href als Link.
-    entry_link = srchRslt.find("aditem").get('data-href')
+    entry_link = srchRslt.find("aditem").attrs
+    print(entry_link)
    
     # Counter initialisieren auf 1
     counter = counter + 1
