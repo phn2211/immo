@@ -50,7 +50,7 @@ srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
 srchRslts = soup.find_all(class_="aditem")
-print(srchRslts)
+
 # Setzt einen Counter.
 counter = 0
 
@@ -59,7 +59,7 @@ vbCounter =  0
 
 # Array für Preise
 ePrices = []
-"""
+
 # Looped durch alle Search-Results durch.
 for srchRslt in srchRslts:
     #print(srchRslt.get_text())
@@ -80,7 +80,7 @@ for srchRslt in srchRslts:
     entry_desc = srchRslt.find(class_="aditem-main--middle--description")
    
     # Nimmt sich das Element mit dem data-href als Link.
-    entry_link = srchRslt.find(attrs={'data-href':True})
+    entry_link = srchRslt.find('a')
     print(entry_link)
     # Counter initialisieren auf 1
     counter = counter + 1
@@ -118,4 +118,3 @@ print(prefix + "Anzahl der Listings >> " + str(counter))
 
 # Gibt den Durschnitspreis der Listings aus.
 print(prefix + "Durschnitts-Preis der Listings >> " + str(calculateAverage(calculateSum(ePrices), counter)))
-"""
