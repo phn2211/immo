@@ -75,7 +75,7 @@ for srchRslt in srchRslts:
     entries = srchRslt.find_all("aditem-main")
     # Geht durch jedes Element mit dem <strong> tag durch.
     for entry in entries:
-        entry_date = entries.find_all(class_="icon icon-smal icon-alendar-open")
+        entry_date = entries.find_all(class_="aditem-main--top--right")
         entry_price = entries.find_all(class_="aditem-main--middle--price")
         # Incrementiert einen Counter.
         counter = counter + 1
