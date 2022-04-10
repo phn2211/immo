@@ -49,7 +49,7 @@ soup = BeautifulSoup(page, "html.parser")
 srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
-srchRslts = soup.find_all(class_="aditem-main")
+srchRslts = soup.find_all("article", class_="aditem-main")
 
 # Setzt einen Counter.
 counter = 0
@@ -57,45 +57,45 @@ counter = 0
 # Setzt einen zweiten Counter.
 vbCounter =  0
 
-eEntries = []
+ePrices = []
 
 # Looped durch alle Search-Results durch.
 for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem der class "--price".
-    entries = srchRslt.find_all(class_="aditem-main--middle--price")
+    prices = srchRslt.find_all(class_="aditem-main--middle--price")
 
-    # Geht durch jedes Element mit dem <strong> tag durch.
-    for entry in entries:
+    # Geht durch jedes Element mit der "--price" class.
+    for price in prices:
 
         # Incrementiert einen Counter.
         counter = counter + 1
 
         # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        print("#" + str(counter) + " | " +  entry.text)
+        print("#" + str(counter) + " | " +  price.text)
 
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
-        if("VB" in entry.text):
+        if("VB" in price.text):
             vbCounter = vbCounter + 1
             
             # Entfernt Chars, wenn das Euro-Zeichen vorhande ist.
-            # Konvertiert außerdem den Preis in eine Int und speichert ihn in den Array 'eEntries'.
-            if("€" in entry.text):
-                if("." in entry.text):
-                    if("VB" in entry.text):
-                        eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
+            # Konvertiert außerdem den Preis in eine Int und speichert ihn in den Array 'ePrices'.
+            if("€" in price.text):
+                if("." in price.text):
+                    if("VB" in price.text):
+                        ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
                     else:
-                        eEntries.append(int(entry.text.replace(" ", "").replace("€", "").replace(".", "")))
-                    eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
+                        ePrices.append(int(price.text.replace(" ", "").replace("€", "").replace(".", "")))
+                    ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
                 else:
-                    eEntries.append(int(entry.text.replace(" ", "").replace("VB", "").replace("€", "")))
+                    ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "")))
         else:
-            if("€" in entry.text):
-                if("." in entry.text):
-                    eEntries.append(int(entry.text.replace(" ", "").replace("€", "").replace(".", "")))
+            if("€" in price.text):
+                if("." in price.text):
+                    ePrices.append(int(price.text.replace(" ", "").replace("€", "").replace(".", "")))
                 else:
-                    eEntries.append(int(entry.text.replace(" ", "").replace("€", "")))        
+                    ePrices.append(int(price.text.replace(" ", "").replace("€", "")))        
 
 # Gibt verhandelbare Listings aus.
 print(prefix + "Verhandelbare Listings >> " + str(vbCounter))
@@ -104,4 +104,4 @@ print(prefix + "Verhandelbare Listings >> " + str(vbCounter))
 print(prefix + "Anzahl der Listings >> " + str(counter))
 
 # Gibt den Durschnitspreis der Listings aus.
-print(prefix + "Durschnitts-Preis der Listings >> " + str(calculateAverage(calculateSum(eEntries), counter)))
+print(prefix + "Durschnitts-Preis der Listings >> " + str(calculateAverage(calculateSum(ePrices), counter)))
