@@ -65,10 +65,10 @@ for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem der class "--price".
-    prices = map(srchRslt.find_all(class_="aditem-main--middle--price").strip)
-    print(prices)
+    prices = srchRslt.find_all(class_="aditem-main--middle--price")
+    dates = srchRslt.find_all(class_="aditem-main--top--right")
     # Geht durch jedes Element mit der "--price" class.
-    for price in prices:
+    for price in dates:
 
         # Incrementiert einen Counter.
         counter = counter + 1
