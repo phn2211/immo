@@ -26,8 +26,8 @@ def calculateSum(arr):
 
 # Fügt die Query in den Ebay-Kleinanzeigen URL ein.
 # URL = "https://www.ebay-kleinanzeigen.de/s-" + query + "/k0"
-# URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/seite:1/1-zimmer-wohnung/k0l1056"
-URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/handy/k0l1056"
+URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/seite:1/1-zimmer-wohnung/k0l1056"
+# URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/handy/k0l1056"
 # Gibt aus welche Query gewählt wurde.
 print(prefix + "Es wird nach gesucht nach >> " + URL)
 
