@@ -64,42 +64,34 @@ ePrices = []
 for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
-    # Nimmt sich alles mit dem der class "--price".
+    # Nimmt sich das Element mit dem der class "--price".
     price = srchRslt.find(class_="aditem-main--middle--price")
+    
     counter = counter + 1
     print("#" + str(counter) + " | " +  price.text)
-    """
-    # Geht durch jedes Element mit der "--price" class.
-    for price in prices:
 
-        # Incrementiert einen Counter.
-        counter = counter + 1
-
-        # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        print("#" + str(counter) + " | " +  price.text)
-
-        # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
-        if("VB" in price.text):
-            vbCounter = vbCounter + 1
-            
-            # Entfernt Chars, wenn das Euro-Zeichen vorhande ist.
-            # Konvertiert außerdem den Preis in eine Int und speichert ihn in den Array 'ePrices'.
-            if("€" in price.text):
-                if("." in price.text):
-                    if("VB" in price.text):
-                        ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
-                    else:
-                        ePrices.append(int(price.text.replace(" ", "").replace("€", "").replace(".", "")))
+    # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
+    if("VB" in price.text):
+        vbCounter = vbCounter + 1
+        
+        # Entfernt Chars, wenn das Euro-Zeichen vorhande ist.
+        # Konvertiert außerdem den Preis in eine Int und speichert ihn in den Array 'ePrices'.
+        if("€" in price.text):
+            if("." in price.text):
+                if("VB" in price.text):
                     ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
                 else:
-                    ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "")))
-        else:
-            if("€" in price.text):
-                if("." in price.text):
                     ePrices.append(int(price.text.replace(" ", "").replace("€", "").replace(".", "")))
-                else:
-                    ePrices.append(int(price.text.replace(" ", "").replace("€", "")))        
-"""
+                ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "").replace(".", "")))
+            else:
+                ePrices.append(int(price.text.replace(" ", "").replace("VB", "").replace("€", "")))
+    else:
+        if("€" in price.text):
+            if("." in price.text):
+                ePrices.append(int(price.text.replace(" ", "").replace("€", "").replace(".", "")))
+            else:
+                ePrices.append(int(price.text.replace(" ", "").replace("€", "")))        
+
 # Gibt verhandelbare Listings aus.
 print(prefix + "Verhandelbare Listings >> " + str(vbCounter))
 
