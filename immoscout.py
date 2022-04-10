@@ -52,8 +52,9 @@ soup = BeautifulSoup(page, "html.parser")
 srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
-srchRslts = soup.find_all("article")
+srchRslts = soup.find_all("article", class_="aditem")
 
+print(srchRslts)
 # Setzt einen Counter.
 counter = 0
 
