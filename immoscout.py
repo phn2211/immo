@@ -65,8 +65,8 @@ for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich das Element mit dem der class "--price" als Preis.
-    entry_price = srchRslt.find(class_="aditem-main--middle--price").strip()
-    
+    entry_price = srchRslt.find(class_="aditem-main--middle--price")
+
     # Nimmt sich das Element mit dem der class "--top--right" als Datum.
     entry_date = srchRslt.find(class_="aditem-main--top--right")
     
@@ -83,7 +83,7 @@ for srchRslt in srchRslts:
     counter = counter + 1
 
     # Ausgabe der Details
-    print("#" + str(counter) + " ; " + entry_date.text + " ; " + entry_place.text + " ; " + entry_price.text + " ; " + entry_title.text + " ; " + entry_desc.text)
+    print("#" + str(counter) + " ; " + entry_date.text.strip() + " ; " + entry_place.text.strip() + " ; " + entry_price.text.strip() + " ; " + entry_title.text.strip() + " ; " + entry_desc.text.strip())
 
     # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
     if("VB" in entry_price.text):
