@@ -91,7 +91,10 @@ for srchRslt in srchRslts:
         counter = counter + 1
 
         # Ausgabe der Details
-        print("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip() + ";" + entry_link['href'])
+        # print("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip() + ";https://www.ebay-kleinanzeigen.de/" + entry_link['href'])
+        # Save in file
+        with open('flats.csv', 'a') as f:
+            f.write("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip() + ";https://www.ebay-kleinanzeigen.de/" + entry_link['href'])
 
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
         if("VB" in entry_price.text):
