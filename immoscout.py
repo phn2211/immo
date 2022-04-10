@@ -57,6 +57,7 @@ counter = 0
 # Setzt einen zweiten Counter.
 vbCounter =  0
 
+# Array für Preise
 ePrices = []
 
 # Looped durch alle Search-Results durch.
@@ -65,7 +66,7 @@ for srchRslt in srchRslts:
 
     # Nimmt sich alles mit dem der class "--price".
     prices = srchRslt.find_all(class_="aditem-main--middle--price")
-
+    print(prices)
     # Geht durch jedes Element mit der "--price" class.
     for price in prices:
 
@@ -73,7 +74,7 @@ for srchRslt in srchRslts:
         counter = counter + 1
 
         # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        print("#" + str(counter) + " | " +  price.text)
+        #print("#" + str(counter) + " | " +  price.text)
 
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
         if("VB" in price.text):
