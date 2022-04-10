@@ -70,7 +70,7 @@ for page in range(1,3):
     URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/seite:"+str(page)+"/1-zimmer-wohnung/k0l1056"
     # Looped durch alle Search-Results durch.
     for srchRslt in srchRslts:
-        print(srchRslt.get_text())
+        #print(srchRslt.get_text())
 
         # Nimmt sich alles mit dem der class "--price".
         entries = srchRslt.find_all(class_="aditem-main--middle--price")
