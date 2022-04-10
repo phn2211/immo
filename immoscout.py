@@ -54,7 +54,6 @@ srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
 srchRslts = soup.find_all(class_="aditem-main")
 
-print(srchRslts)
 # Setzt einen Counter.
 counter = 0
 
@@ -75,12 +74,13 @@ for srchRslt in srchRslts:
     entries = srchRslt.find_all(class_="aditem-main")
     # Geht durch jedes Element mit dem <strong> tag durch.
     for entry in entries:
-
+        entry_date = entries.find_all(class_="icon icon-smal icon-alendar-open")
+        entry_price = entries.find_all(class_="aditem-main--middle--price")
         # Incrementiert einen Counter.
         counter = counter + 1
 
         # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        print("#" + str(counter) + " | " +  entry.text)
+        print("#" + str(counter) + " | " +  entry_date.text + " | " + entry_price.text)
 
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
         if("VB" in entry.text):
