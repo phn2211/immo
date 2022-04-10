@@ -79,7 +79,7 @@ for srchRslt in srchRslts:
         counter = counter + 1
 
         # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        entry_date = entry.find_all(class_="icon icon-small icon-calendar-open")
+        entry_date = srchRslt.find_all(class_="icon icon-small icon-calendar-open")
         #print("#" + str(counter) + " | " +  entry.text)
         print("#" + str(counter) + " | " +  entry_date.text)
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
