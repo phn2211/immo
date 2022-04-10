@@ -54,7 +54,6 @@ srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
 srchRslts = soup.find_all("article", class_="aditem")
 
-print(srchRslts)
 # Setzt einen Counter.
 counter = 0
 
@@ -73,6 +72,7 @@ for srchRslt in srchRslts:
 
     # Nimmt sich alles mit dem der class "--price".
     prices = srchRslt.find_all("aditem-main--middle--price")
+    print(prices)
     # Geht durch jedes Element mit dem <strong> tag durch.
     for price in prices:
         # Incrementiert einen Counter.
