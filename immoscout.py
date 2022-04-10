@@ -66,24 +66,24 @@ for srchRslt in srchRslts:
 
     # Nimmt sich das Element mit dem der class "--price" als Preis.
     entry_price = srchRslt.find(class_="aditem-main--middle--price")
-    
+    entry_price = entry_price.strip('\n')
     # Nimmt sich das Element mit dem der class "--top--right" als Datum.
     entry_date = srchRslt.find(class_="aditem-main--top--right")
-    
+    entry_date = entry_date.strip('\n')
     # Nimmt sich das Element mit dem der class "--top--left" als Ort.
     entry_place = srchRslt.find(class_="aditem-main--top--left")
-
+    entry_place = entry_place.strip('\n')
     # Nimmt sich das Element mit dem der class "ellipsis" als Title.
     entry_title = srchRslt.find(class_="ellipsis")
-
+    entry_title = entry_title-strip('\n')
     # Nimmt sich das Element mit dem der class "--middle--descriptin" als Beschreibung.
     entry_desc = srchRslt.find(class_="aditem-main--middle--description")
-
+    entry_desc = entry_desc.strip('\n')
     # Counter initialisieren auf 1
     counter = counter + 1
 
     # Ausgabe der Details
-    print("#" + str(counter) + " | " + entry_date.text + " | " + entry_place.text + " | " + entry_price.text + " | " + entry_title.text + " | " + entry_desc.text)
+    print("#" + str(counter) + " ; " + entry_date.text + " ; " + entry_place.text + " ; " + entry_price.text + " ; " + entry_title.text + " ; " + entry_desc.text)
 
     # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
     if("VB" in entry_price.text):
