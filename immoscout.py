@@ -80,14 +80,13 @@ for srchRslt in srchRslts:
     entry_desc = srchRslt.find(class_="aditem-main--middle--description")
    
     # Nimmt sich das Element mit dem data-href als Link.
-    entry_link = srchRslt.find(class_="aditem")
-    entry_link = entry_link['data-href']
+    entry_link = srchRslt.find(class_="aditem", attrs={'data-href':True})
     print(entry_link)
     # Counter initialisieren auf 1
     counter = counter + 1
 
     # Ausgabe der Details
-    print("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip())
+    # print("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip())
 
     # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
     if("VB" in entry_price.text):
