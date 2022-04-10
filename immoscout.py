@@ -64,26 +64,29 @@ ePrices = []
 for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
-    # Nimmt sich das Element mit dem der class "--price" als Preis.
+    # Nimmt sich das Element mit der class "--price" als Preis.
     entry_price = srchRslt.find(class_="aditem-main--middle--price")
 
-    # Nimmt sich das Element mit dem der class "--top--right" als Datum.
+    # Nimmt sich das Element mit der class "--top--right" als Datum.
     entry_date = srchRslt.find(class_="aditem-main--top--right")
     
-    # Nimmt sich das Element mit dem der class "--top--left" als Ort.
+    # Nimmt sich das Element mit der class "--top--left" als Ort.
     entry_place = srchRslt.find(class_="aditem-main--top--left")
     
-    # Nimmt sich das Element mit dem der class "ellipsis" als Title.
+    # Nimmt sich das Element mit der class "ellipsis" als Title.
     entry_title = srchRslt.find(class_="ellipsis")
    
-    # Nimmt sich das Element mit dem der class "--middle--descriptin" als Beschreibung.
+    # Nimmt sich das Element mit der class "--middle--descriptin" als Beschreibung.
     entry_desc = srchRslt.find(class_="aditem-main--middle--description")
+   
+    # Nimmt sich das Element mit dem data-href als Link.
+    entry_link = srchRslt.find("aditem").get('data-href')
    
     # Counter initialisieren auf 1
     counter = counter + 1
 
     # Ausgabe der Details
-    print("#" + str(counter) + " ; " + entry_date.text.strip() + " ; " + entry_place.text.strip() + " ; " + entry_price.text.strip() + " ; " + entry_title.text.strip() + " ; " + entry_desc.text.strip())
+    print("#" + str(counter) + ";" + entry_date.text.strip() + ";" + entry_place.text.strip() + ";" + entry_price.text.strip() + ";" + entry_title.text.strip() + ";" + entry_desc.text.strip()+ ";" + entry_link.text.strip())
 
     # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
     if("VB" in entry_price.text):
