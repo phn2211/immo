@@ -29,7 +29,7 @@ def calculateSum(arr):
 
 # Fügt die Query in den Ebay-Kleinanzeigen URL ein.
 # URL = "https://www.ebay-kleinanzeigen.de/s-" + query + "/k0"
-URL = "https://www.ebay-kleinanzeigen.de/s-hannover/seite:1/1-zimmer-wohnung/k0l3155"
+URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/seite:1/1-zimmer-wohnung/k0l1056"
 # URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/handy/k0l1056"
 # Gibt aus welche Query gewählt wurde.
 print(prefix + "Es wird nach gesucht nach >> " + URL)
@@ -67,7 +67,7 @@ df = pd.DataFrame()
 list = []
 
 for page in range(1,3):
-    URL = "https://www.ebay-kleinanzeigen.de/s-hannover/seite:"+str(page)+"/1-zimmer-wohnung/k0l3155"
+    URL = "https://www.ebay-kleinanzeigen.de/s-bielefeld/seite:"+str(page)+"/1-zimmer-wohnung/k0l1056"
     # Looped durch alle Search-Results durch.
     for srchRslt in srchRslts:
         print(srchRslt.get_text())
