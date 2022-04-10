@@ -74,7 +74,7 @@ for srchRslt in srchRslts:
         counter = counter + 1
 
         # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        #print("#" + str(counter) + " | " +  price.text)
+        print("#" + str(counter) + " | " +  price.text)
 
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
         if("VB" in price.text):
