@@ -65,7 +65,7 @@ for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem der class "--price".
-    prices = srchRslt.find_all(class_="aditem-main--middle--price").strip
+    prices = map(srchRslt.find_all(class_="aditem-main--middle--price").strip)
     print(prices)
     # Geht durch jedes Element mit der "--price" class.
     for price in prices:
