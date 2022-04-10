@@ -52,7 +52,7 @@ soup = BeautifulSoup(page, "html.parser")
 srchRsltsContent = soup.find("ul", id="srchrslt-adtable")
 
 # Setzt die Einträge inheralb der Seach-Results und dem Table dortdrinn in eine Variable / Array.
-srchRslts = soup.find_all(class_="aditem-main")
+srchRslts = soup.find_all(class_="aditem-main--middle")
 
 # Setzt einen Counter.
 counter = 0
@@ -62,13 +62,17 @@ vbCounter =  0
 
 eEntries = []
 
+# CSV Parameter
+df = pd.DataFrame()
+list = []
+
 # Looped durch alle Search-Results durch.
 for srchRslt in srchRslts:
     #print(srchRslt.get_text())
 
     # Nimmt sich alles mit dem der class "--price".
     # entries = srchRslt.find_all(class_="aditem-main--middle--price")
-    entries = srchRslt.find_all(class_="aditem-main")
+    entries = srchRslt.find_all(class_="aditem-main--middle--price")
     # Geht durch jedes Element mit dem <strong> tag durch.
     for entry in entries:
 
