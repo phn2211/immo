@@ -67,15 +67,17 @@ for srchRslt in srchRslts:
     # Nimmt sich alles mit dem der class "--price".
     prices = srchRslt.find_all(class_="aditem-main--middle--price")
     dates = srchRslt.find_all(class_="aditem-main--top--right")
+    places = srchRslt.find_all(class_="aditem-main--top--left")
+    entries = srchRslt.find_all(class_="aditem-main")
     # Geht durch jedes Element mit der "--price" class.
-    for price in dates:
-
+    for price in entries:
+        entry_date = price.find(class_="aditem-main--top--left")
         # Incrementiert einen Counter.
         counter = counter + 1
 
         # Gibt den Preis des Listings aus & fügt den Incrementierten Counter hinzu (+ formatierung).
-        print("#" + str(counter) + " | " +  price.text)
-
+        #print("#" + str(counter) + " | " +  price.text)
+        print("#" + str(counter) + " | " +  entry_date.text)
         # Zählt wieviele Listings mit 'VB' gekennzeichnet sind.
         if("VB" in price.text):
             vbCounter = vbCounter + 1
